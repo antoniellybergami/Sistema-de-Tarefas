@@ -13,4 +13,4 @@ Route::put('/tarefas/{tarefa}', TarefasController::class .'@update')->name('tare
 Route::delete('/tarefas/{tarefa}', TarefasController::class .'@destroy')->name('tarefas.destroy');
 
 
-
+Route::post('/tarefas/reordenar', [TarefasController::class, 'reordenar'])->name('tarefas.reordenar');

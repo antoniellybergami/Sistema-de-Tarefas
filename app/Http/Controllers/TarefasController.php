@@ -8,6 +8,23 @@ use Illuminate\Http\Request;
 
 class TarefasController extends Controller
 {
+
+    public function reordenar(Request $request)
+    {
+        $ordem = $request->input('ordem');
+
+        foreach ($ordem as $index => $id) { //pega o id que vem da lista de ids ordenados
+            if (Tarefa::find($id)) {
+                Tarefa::where('id', $id)->update(['ordem' => $index ]); //como o array vem ordenado, o indice já é a ordem
+            } else {
+                return response()->json(['message' => 'Tarefa não encontrada: ' . $id], 422);
+            }
+        }
+    
+        return response()->json(['message' => 'Tarefas reordenadas com sucesso!']);
+    }
+    
+
     /**
      * Display a listing of the resource.
      */
