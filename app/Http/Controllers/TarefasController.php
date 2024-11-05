@@ -69,7 +69,7 @@ class TarefasController extends Controller
     
         ]);
 
-        $nomeExiste = Tarefa::where('nome', $request->nome)->first(); //verifica se o nome já existe em algum tarefa
+        $nomeExiste = Tarefa::where('nome', $request->nome)->where('id', '!=' ,$id)->first(); //verifica se o nome já existe em algum tarefa, mas se for a da própria tarefa pode
 
         if ($nomeExiste) {
             return redirect()->back()

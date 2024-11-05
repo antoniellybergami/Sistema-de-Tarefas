@@ -6,20 +6,14 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CRUD tarefas</a>
+        </div>
+    </nav>
+
     <div class="container mt-4">
         <h2 class="mb-4">Criar Nova Tarefa</h2>
-        
-        <!-- Exibição de mensagens de erro -->
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
 
         <form action="{{ route('tarefas.store') }}" method="POST">
             @csrf

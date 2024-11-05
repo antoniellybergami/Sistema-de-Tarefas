@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">CRUDtarefas</a>
+            <a class="navbar-brand" href="#">CRUD tarefas</a>
             <div class="d-flex">
                 <a class="btn btn-sm btn-success" href="{{ route('tarefas.create') }}">Incluir Tarefa</a>
             </div>
@@ -17,7 +17,7 @@
     </nav>
     
     <div class="container mt-5">
-        <h2 class="mb-4">Lista de Tarefas</h2>
+        <h2 class="mb-4">Tarefas</h2>
 
         <table class="table">
             <thead>
@@ -31,11 +31,10 @@
             </thead>
             <tbody>
                 @foreach ($tarefas as $tarefa)
-                    <tr class="{{ $tarefa->custo >= 1000 ? 'table-warning' : '' }}">
                         <td>{{ $tarefa->id }}</td>
                         <td>{{ $tarefa->nome }}</td>
                         <td>R$ {{ number_format($tarefa->custo, 2, ',', '.') }}</td>
-                        <td>{{ \Carbon\Carbon::parse($tarefa->data)->format('d/m/Y') }}</td>
+                        <td>{{ date('d/m/Y', strtotime($tarefa->data)) }}</td> 
                         <td>
                             <a href="{{ route('tarefas.edit', $tarefa->id) }}" class="btn btn-primary btn-sm">
                                 <i class="bi bi-pencil"></i> Editar
@@ -47,9 +46,8 @@
                                     <i class="bi bi-trash"></i> Excluir
                                 </button>
                             </form>
-                          
                         </td>
-                    </tr>
+                        <tr></tr>
                 @endforeach
             </tbody>
         </table>
