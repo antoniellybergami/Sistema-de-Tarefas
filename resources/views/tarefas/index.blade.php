@@ -18,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">CRUDtarefas</a>
+            <a class="navbar-brand" href="#">Lista de Tarefas</a>
             <div class="d-flex">
                 <a class="btn btn-sm btn-success" href="{{ route('tarefas.create') }}">Incluir Tarefa</a>
             </div>
